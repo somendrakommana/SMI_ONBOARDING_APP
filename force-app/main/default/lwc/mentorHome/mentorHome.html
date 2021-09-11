@@ -1,0 +1,65 @@
+<template>
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="New Joinee  List">
+            <lightning-card>
+                    <div class="slds-m-around_small">
+                        <div>
+                            <c-employee-search onsearch={handleEvent}>  </c-employee-search>
+                            </div>
+                                <div>
+                                    <template if:true={employeeRecords}>
+                                    <div class="slds-grid slds-wrap">
+                                    <template for:each={employeeRecords} for:item="item">
+                                            
+                                            <div class="slds-col slds-size_1-of-3" key={item.Id}>
+                                                <div class="slds-p-right_x-small">
+                                                    <div class="slds-p-top_x-small">
+                                                        <c-employee-t employee-record={item} onemployeeview={handleEmployeeView}></c-employee-t>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                
+                                    </template>
+                                </div>
+                            
+                            
+                
+                    </div>
+                              
+            </lightning-card>
+        </lightning-tab>
+        <lightning-tab label="Onboarding Step">
+            <lightning-card title="Onboarding Step"
+                icon-name="standard:steps">
+                <div class="slds-m-around_small">
+                    <lightning-record-form       
+                        object-api-name={objectApiStep}
+                        layout-type="Full"
+                        columns="2"
+                        onsuccess={handleSuccess}
+                    >
+                    </lightning-record-form>
+                </div>
+            </lightning-card>
+            <lightning-card>
+            </lightning-card>
+        </lightning-tab>
+        <lightning-tab label="Task Assignment">
+            <lightning-card title="Task Assignment"
+                icon-name="action:new_task">
+                <div class="slds-m-around_small">
+                    <lightning-record-form       
+                        object-api-name={objectApitask}
+                        layout-type="Full"
+                        columns="2"
+                        onsuccess={handleSuccess}
+                        required
+                    >
+                    </lightning-record-form>
+                </div>
+            </lightning-card>    
+        </lightning-tab>
+    </lightning-tabset>   
+</template>

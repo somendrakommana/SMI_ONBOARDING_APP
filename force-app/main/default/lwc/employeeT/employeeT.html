@@ -1,0 +1,21 @@
+<template>
+    <template if:true={employeeRecord}>
+        <lightning-card >
+            <div class="slds-var-m-around_small">
+                <p>
+                    <lightning-avatar size="large"   src="https://www.lightningdesignsystem.com/assets/images/avatar1.jpg" initials="CR" fallback-icon-name="standard:person_account" alternative-text="Cindy Rice" class="slds-m-right_small"></lightning-avatar>
+                </p>
+                <p>
+                <strong>New Joinee ID :  </strong> {employeeRecord.Name} </br>
+                <strong>New Joinee Name :  </strong> {employeeRecord.New_Joinee__r.Name} 
+                </p>
+                <br>
+                <p class="slds-var-m-around_small">
+                   
+                    <lightning-button label="View Details"  alternative-text="Open record" onclick={handleOpenRecordClick} ></lightning-button>
+                    <a class="slds-button slds-button_neutral" href="/lightning/o/Assign_task__c/new?count=1&3D00Bp0000002BM7kEAG">Assign task</a>
+                </p>
+            </div>
+        </lightning-card>
+    </template>
+</template>

@@ -1,0 +1,35 @@
+<template>
+<lightning-card title="Onboarding Steps" icon-name="standard:contact">
+    <div class="slds-card__body_inner">
+
+        <template if:true={contacts.data}>
+            <table class="slds-table slds-table_fixed-layout slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={contacts.data} for:item="c">
+                        <tr class="slds-hint-parent" key={c.Id}>
+                            <th data-label="Name" scope="row" class="slds-truncate">
+                                <lightning-button-icon icon-name="utility:search" variant="bare"
+                                    alternative-text="Open record" onclick={viewContact} value={c.Id}>
+                                </lightning-button-icon>
+                                <a onclick={viewContact2} title="View Contact 2" data-id={c.Id}
+                                    target="_blank">{c.Name}</a>
+                            </th>
+                            
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+
+        </template>
+
+    </div>
+</lightning-card>
+</template>
